@@ -1,6 +1,5 @@
 - Usar laravel
 
-
 - pesquisar sobre a migration
 
 - readById
