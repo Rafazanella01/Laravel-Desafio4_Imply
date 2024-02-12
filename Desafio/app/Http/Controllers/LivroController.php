@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class LivroController extends Controller
 {
-    public function index(Request $request)
+    public function listarLivros(Request $request)
     {
         $livros = Livro::query();
 
@@ -45,7 +45,7 @@ class LivroController extends Controller
         return response()->json($livros, 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
-    public function store(Request $request)
+    public function criarLivro(Request $request)
     {
         $request->validate([
             'titulo' => 'required|string',
@@ -60,14 +60,14 @@ class LivroController extends Controller
         return response()->json($livro, 201);
     }
 
-    public function show($id)
+    public function mostrarLivro($id)
     {
         $livro = Livro::findOrFail($id);
 
         return response()->json($livro, 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
-    public function update(Request $request, $id)
+    public function atualizarLivro(Request $request, $id)
     {
         $request->validate([
             'titulo' => 'string',
@@ -83,7 +83,7 @@ class LivroController extends Controller
         return response()->json($livro, 200);
     }
 
-    public function destroy($id)
+    public function deletarLivro($id)
     {
         $livro = Livro::findOrFail($id);
         $livro->delete();

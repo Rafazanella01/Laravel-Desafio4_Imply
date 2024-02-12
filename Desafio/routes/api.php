@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/livros', [LivroController::class, 'index']);
-Route::post('/livros', [LivroController::class, 'store']);
-Route::get('/livros/{id}', [LivroController::class, 'show']);
-Route::put('/livros/{id}', [LivroController::class, 'update']);
-Route::delete('/livros/{id}', [LivroController::class, 'destroy']);
+Route::get('/livros', [LivroController::class, 'listarLivros']);
+Route::post('/livros', [LivroController::class, 'criarLivro']);
+Route::get('/livros/{id}', [LivroController::class, 'mostrarLivro']);
+Route::put('/livros/{id}', [LivroController::class, 'atualizarLivro']);
+Route::delete('/livros/{id}', [LivroController::class, 'deletarLivro']);
