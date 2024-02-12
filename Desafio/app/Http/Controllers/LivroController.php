@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Livro;
+use Illuminate\Support\Facades\Session;
+
 
 class LivroController extends Controller
 {
@@ -40,7 +42,7 @@ class LivroController extends Controller
             ];
         });
         
-        return response()->json($livros, 200, [], JSON_PRETTY_PRINT);
+        return response()->json($livros, 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
     public function store(Request $request)
@@ -62,7 +64,7 @@ class LivroController extends Controller
     {
         $livro = Livro::findOrFail($id);
 
-        return response()->json($livro);
+        return response()->json($livro, 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
     public function update(Request $request, $id)
@@ -86,7 +88,10 @@ class LivroController extends Controller
         $livro = Livro::findOrFail($id);
         $livro->delete();
 
+        Session::flash('mensagem', 'Item deletado com sucesso.');
+
         return response()->json(null, 204);
+        return redirect()->back();
     }
 }
 
