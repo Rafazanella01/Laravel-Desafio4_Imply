@@ -22,11 +22,11 @@ class LivroController extends Controller
         if ($request->has('autor')) {
             $livros->where('autor', 'like', '%' . $request->autor . '%');
         }
-        if ($request->has('data_inicial')) {
-            $livros->whereDate('created_at', '>=', $request->data_inicial);
+        if ($request->has('dataInicial')) {
+            $livros->whereDate('criado', '>=', $request->data_inicial);
         }
-        if ($request->has('data_final')) {
-            $livros->whereDate('created_at', '<=', $request->data_final);
+        if ($request->has('dataFinal')) {
+            $livros->whereDate('criado', '<=', $request->data_final);
         }
         $livros = $livros->get()->map(function ($livro) {
             $data_lancamento_formatada = date('Y-m-d', strtotime($livro->data_lancamento));
@@ -34,11 +34,11 @@ class LivroController extends Controller
                 'id' => $livro->id,
                 'titulo' => $livro->titulo,
                 'autor' => $livro->autor,
-                'data_lancamento' => $data_lancamento_formatada,
+                'dataLancamento' => $data_lancamento_formatada,
                 'genero' => $livro->genero,
-                'numero_paginas' => $livro->numero_paginas,
-                'created_at' => date('Y-m-d H:i:s', strtotime($livro->created_at)),
-                'updated_at' => date('Y-m-d H:i:s', strtotime($livro->updated_at)),
+                'numeroPaginas' => $livro->numero_paginas,
+                'criado' => date('Y-m-d H:i:s', strtotime($livro->created_at)),
+                'atualizado' => date('Y-m-d H:i:s', strtotime($livro->updated_at)),
             ];
         });
         
@@ -50,9 +50,9 @@ class LivroController extends Controller
         $request->validate([
             'titulo' => 'required|string',
             'autor' => 'required|string',
-            'data_lancamento' => 'required|date',
+            'dataLancamento' => 'required|date',
             'genero' => 'required|in:Romance,Clássico,Ficção,Mistério,Ação,Drama',
-            'numero_paginas' => 'required|integer|min:1'
+            'numeroPaginas' => 'required|integer|min:1'
         ]);
 
         $livro = Livro::create($request->all());
@@ -72,9 +72,9 @@ class LivroController extends Controller
         $request->validate([
             'titulo' => 'string',
             'autor' => 'string',
-            'data_lancamento' => 'date',
+            'dataLancamento' => 'date',
             'genero' => 'in:Romance,Clássico,Ficção,Mistério,Ação,Drama',
-            'numero_paginas' => 'integer|min:1'
+            'numeroPaginas' => 'integer|min:1'
         ]);
 
         $livro = Livro::findOrFail($id);

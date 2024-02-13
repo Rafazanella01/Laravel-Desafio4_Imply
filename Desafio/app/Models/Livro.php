@@ -12,8 +12,8 @@ class Livro extends Model
     protected $fillable = [
         'titulo',
         'autor',
-        'data_lancamento',
+        'dataLancamento',
         'genero',
-        'numero_paginas',
+        'numeroPaginas',
     ];
 }

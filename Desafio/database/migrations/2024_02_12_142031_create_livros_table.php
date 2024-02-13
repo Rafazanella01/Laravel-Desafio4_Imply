@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('titulo');
             $table->string('autor');
-            $table->date('data_lancamento');
+            $table->date('dataLancamento');
             $table->enum('genero', ['Romance', 'Clássico', 'Ficção', 'Mistério', 'Ação', 'Drama']);
-            $table->integer('numero_paginas');
+            $table->integer('numeroPaginas');
         });
     }
     /**
