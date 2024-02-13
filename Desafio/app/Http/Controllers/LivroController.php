@@ -88,10 +88,7 @@ class LivroController extends Controller
         $livro = Livro::findOrFail($id);
         $livro->delete();
 
-        Session::flash('mensagem', 'Item deletado com sucesso.');
-
         return response()->json(null, 204);
-        return redirect()->back();
     }
 }
 

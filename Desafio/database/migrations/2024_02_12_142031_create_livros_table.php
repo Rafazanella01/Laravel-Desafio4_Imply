@@ -10,17 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('livros', function (Blueprint $table) {
-        $table->id();
-        $table->timestamps();
-        $table->string('titulo');
-        $table->string('autor');
-        $table->date('data_lancamento');
-        $table->enum('genero', ['Romance', 'Clássico', 'Ficção', 'Mistério', 'Ação', 'Drama']);
-        $table->integer('numero_paginas');
-    });
-}
+    {
+        Schema::create('livros', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('titulo');
+            $table->string('autor');
+            $table->date('data_lancamento');
+            $table->enum('genero', ['Romance', 'Clássico', 'Ficção', 'Mistério', 'Ação', 'Drama']);
+            $table->integer('numero_paginas');
+        });
+    }
     /**
      * Reverse the migrations.
      */

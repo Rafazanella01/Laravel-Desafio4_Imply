@@ -7,6 +7,9 @@ class InserirLivros extends Migration
 {
     public function up()
     {
+
+        //date_default_timezone_set('America/Sao_Paulo');
+
         DB::table('livros')->insert([
             [
                 'titulo' => 'Dom Quixote',
