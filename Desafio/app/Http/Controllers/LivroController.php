@@ -28,7 +28,6 @@ class LivroController extends Controller
                 $livros->whereBetween('dataLancamento', [$dataInicial, $dataFinal]);
             }
             
-            
             $livros = $livros->get();
 
             if ($livros->isEmpty()) {
