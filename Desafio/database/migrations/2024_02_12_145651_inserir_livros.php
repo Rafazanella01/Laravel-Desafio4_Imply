@@ -17,8 +17,8 @@ class InserirLivros extends Migration
                 'dataLancamento' => '1605-01-16',
                 'genero' => 'Romance',
                 'numeroPaginas' => 863,
-                'criado' => now(),
-                'atualizado' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => 'O Pequeno Príncipe',
@@ -26,8 +26,8 @@ class InserirLivros extends Migration
                 'dataLancamento' => '1943-04-06',
                 'genero' => 'Ficção',
                 'numeroPaginas' => 96,
-                'criado' => now(),
-                'atualizado' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => 'Moby Dick',
@@ -35,8 +35,8 @@ class InserirLivros extends Migration
                 'dataLancamento' => '1851-10-18',
                 'genero' => 'Ação',
                 'numeroPaginas' => 585,
-                'criado' => now(),
-                'atualizado' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => 'Sherlock Holmes',
@@ -44,8 +44,8 @@ class InserirLivros extends Migration
                 'dataLancamento' => '1892-10-14',
                 'genero' => 'Mistério',
                 'numeroPaginas' => 1248,
-                'criado' => now(),
-                'atualizado' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => 'Romeu e Julieta',
@@ -53,8 +53,8 @@ class InserirLivros extends Migration
                 'dataLancamento' => '1597-01-20',
                 'genero' => 'Romance',
                 'numeroPaginas' => 256,
-                'criado' => now(),
-                'atualizado' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }
