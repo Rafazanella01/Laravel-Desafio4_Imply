@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Livro;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Database\QueryException;
 class LivroController extends Controller
 {
@@ -14,13 +13,13 @@ class LivroController extends Controller
              $livros = Livro::query();
 
             if ($request->has('titulo')) {
-                $livros->where('titulo', 'like', '%' . $request->titulo . '%');
+                $livros->where('titulo', 'LIKE', '%' . $request->titulo . '%');
             }
             if ($request->has('genero')) {
                 $livros->where('genero', $request->genero);
             }
             if ($request->has('autor')) {
-                $livros->where('autor', 'like', '%' . $request->autor . '%');
+                $livros->where('autor', 'LIKE', '%' . $request->autor . '%');
             }
             if ($request->has('dataInicial') && $request->has('dataFinal')) {
                 $dataInicial = $request->dataInicial;
